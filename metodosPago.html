@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        /* Contenedor de los destinos para alinearlos en una sola fila */
+        .contenedor-destinos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Cada destino con imagen y enlace */
+        .destino {
+            text-align: center;
+            width: 250px;
+        }
+
+            /* Imagen de cada botón */
+            .destino input[type="image"] {
+                width: 250px;
+                height: 300px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Estilo del enlace debajo de la imagen */
+            .destino a {
+                display: block;
+                color: blue;
+                font-size: 16px;
+                text-decoration: none;
+                margin-top: 8px;
+            }
+
+        /* Estilos adicionales para botones */
+        .btn-acciones {
+            display: none; /* Oculto inicialmente */
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .btn-acciones button {
+                margin: 10px;
+                padding: 15px 30px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+        /* Estilo de las opciones de pago con iconos y tamaño más grande */
+        .metodo-pago label {
+            font-size: 18px;
+            margin: 15px;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .metodo-pago input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.5);
+        }
+
+        /* Íconos para las opciones de pago */
+        .icono {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BIENVENIDO A "CAIFAN"</h1>
+        <nav>
+            <ul>
+                <li><a href="Index.html" class="nav-link inicio">Inicio</a></li>
+                <li><a href="comprar.html" class="nav-link comprar">Comprar</a></li>
+                <li><a href="destinos.html" class="nav-link destinos">Destinos</a></li>
+                <li><a href="#" class="nav-link contacto">Contacto</a></li>
+                <li><a href="crearcuenta.html" class="nav-link crear-cuenta">Inicio de sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Seleccione el Método de Pago</h2>
+
+        <div class="metodo-pago">
+            <label>
+                <input type="radio" name="metodoPago" value="Efectivo">
+                <img src="https://img.freepik.com/vector-premium/icono-dinero-efectivo-aislado_24877-13371.jpg" class="icono" alt="Icono Efectivo">
+                Efectivo
+            </label>
+            <label>
+                <input type="radio" name="metodoPago" value="Tarjeta">
+                <img src="https://www.bbva.com/wp-content/uploads/2022/05/tarjetas_bbva.jpg" class="icono" alt="Icono Tarjeta">
+                Tarjeta
+            </label>
+        </div>
+
+        <button onclick="confirmarPago()" style="padding: 15px 30px; font-size: 18px;">Confirmar Pago</button>
+
+        <!-- Botones de acciones adicionales -->
+        <div class="btn-acciones" id="btn-acciones">
+            <button onclick="imprimirTicket()">Imprimir Ticket</button>
+            <button onclick="enviarPorCorreo()">Enviar Ticket por Correo</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Ventas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function confirmarPago() {
+            let metodoPago = document.querySelector('input[name="metodoPago"]:checked');
+            if (!metodoPago) {
+                alert("Por favor, seleccione un método de pago.");
+                return;
+            }
+            alert(`Pago confirmado mediante: ${metodoPago.value}`);
+
+            // Mostrar los botones de imprimir y enviar por correo
+            document.getElementById('btn-acciones').style.display = 'block';
+        }
+
+        function imprimirTicket() {
+            window.print();
+        }
+
+        function enviarPorCorreo() {
+            let email = prompt("Ingrese su correo electrónico para enviar el ticket:");
+            if (email) {
+                alert(`El ticket será enviado a: ${email}`);
+                // Aquí podrías integrar un servicio de envío de correos en el servidor
+            } else {
+                alert("No se ingresó un correo.");
+            }
+        }
+    </script>
+</body>
+</html>

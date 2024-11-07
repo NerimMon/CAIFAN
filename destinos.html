@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        /* Contenedor de los destinos para alinearlos en una sola fila */
+        .contenedor-destinos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra los elementos horizontalmente */
+            gap: 20px; /* Espacio entre cada destino */
+            margin-top: 20px;
+        }
+
+        /* Cada destino con imagen y enlace */
+        .destino {
+            text-align: center;
+            width: 250px; /* Ancho fijo para cada destino */
+        }
+
+            /* Imagen de cada botón */
+            .destino input[type="image"] {
+                width: 250px;
+                height: 300px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Estilo del enlace debajo de la imagen */
+            .destino a {
+                display: block;
+                color: blue;
+                font-size: 16px;
+                text-decoration: none;
+                margin-top: 8px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BIENVENIDO A "CAIFAN"</h1>
+        <nav>
+            <ul>
+                <li><a href="comprar.html" class="nav-link comprar">Comprar</a></li>
+                <li><a href="destinos.html" class="nav-link destinos">Destinos</a></li>
+                <li><a href="#" class="nav-link contacto">Contacto</a></li>
+                <li><a href="crearcuenta.html" class="nav-link crear-cuenta">Inicio de sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor-destinos">
+
+        <div class="destino">
+            <form action="comprar.html">
+                <input type="image" src="css/DESTINOS/AGUASCALIENTES.jpg" alt="Aguascalientes"><br />
+                <a href="comprar.html">AGUASCALIENTES</a>
+            </form>
+        </div>
+
+        <div class="destino">
+            <form action="comprar.html">
+                <input type="image" src="css/DESTINOS/BAJA CALIFORNIA.jpg" alt="Baja California"><br />
+                <a href="comprar.html">BAJA CALIFORNIA (LA PAZ)</a>
+            </form>
+        </div>
+        <div class="destino">
+            <form action="comprar.html">
+                <input type="image" src="css/DESTINOS/BAJA CALIFORNIA SUR.jpg" alt="Baja California Sur"><br />
+                <a href="comprar.html">BAJA CALIFORNIA SUR</a>
+            </form>
+        </div>
+        <div class="destino">
+            <form action="comprar.html">
+                <input type="image" src="css/DESTINOS/CAMPECHE.jpg" alt="Campeche"><br />
+                <a href="comprar.html">CAMPECHE</a>
+            </form>
+        </div>
+        <div class="destino"></div>
+        <div class="destino">
+            <form action="comprar.html">
+                <input type="image" src="css/DESTINOS/CAMPECHE.jpg" alt="Campeche"><br />
+                <a href="comprar.html">CAMPECHE</a>
+            </form>
+        </div>
+        <div class="destino"></div> 
+    </div>
+</body>
+</html>

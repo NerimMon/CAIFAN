@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar</title>
+    <link rel="stylesheet" href="styless2.css">
+</head>
+<body>
+    <header>
+        <h1>BIENVENIDO A "CAIFAN"</h1>
+        <nav>
+            <ul>
+                <li><a href="Index.html" class="nav-link inicio">Inicio</a></li>
+                <li><a href="crearcuenta.html" class="nav-link crear-cuenta">Iniciar Sesion</a></li>
+                <li><a href="comprar.html" class="nav-link comprar">Comprar</a></li>
+                <li><a href="destinos.html" class="nav-link destinos">Destinos</a></li>
+                <li><a href="#" class="nav-link contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>¿A DONDE VIAJAREMOS HOY?</h2>
+
+        <!-- Selección de destino -->
+        <div class="container">
+            <h2>¿A DONDE VIAJAREMOS HOY?</h2>
+
+            <!-- Selección de destino -->
+            <label for="LugarDestino">Seleccione el estado del destino:</label>
+            <select id="LugarDestino" name="LugarDestino" required>
+                value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California (Tijuana)</option>
+                <option value="Baja California Sur">Baja California (La Paz)</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Coahuila">Coahuila</option>
+                <option value="Colima">Colima</option>
+                <option value="Durango">Durango</option>
+                <option value="Estado de México">Estado de México (Toluca)</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero (Acapulco)</option>
+                <option value="Hidalgo">Hidalgo (Pachuca)</option>
+                <option value="Jalisco">Jalisco (Guadalajara)</option>
+                <option value="Michoacan">Michoacan (Morelia)</option>
+                <option value="Cuernavaca">Cuernavaca</option>
+                <option value="Nayarit">Nayarit (Tepic)</option>
+                <option value="Monterrey">Monterrey  (Nuevo León)</option>
+                <option value="Oaxaca">Oaxaca (Oaxaca de Juarez)</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Queretaro">Queretaro</option>
+                <option value="Quintana Roo">Quintana Roo (Cancún)</option>
+                <option value="San Luis Potosi">San Luis Potosi</option>
+                <option value="Sinaloa">Sinaloa (Culiacan)</option>
+                <option value="Sonora">Sonora (Hermosillo)</option>
+                <option value="Tabasco">Tabasco (Villahermosa)</option>
+                <option value="Tamaulipas">Tamaulipas (Tampico)</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Yucatán">Yucatán (Mérida)</option>
+                <option value="Zacatecas">Zacatecas</option>
+
+            </select>
+
+            <!-- Número de pasajeros -->
+            <label for="pasajeros">Número de pasajeros:</label>
+            <input type="number" id="pasajeros" name="pasajeros" min="1" required>
+
+            <!-- Fecha del viaje -->
+            <label for="fechaViaje">Fecha del viaje:</label>
+            <input type="date" id="fechaViaje" name="fechaViaje" required>
+
+            <!-- Selección de horario -->
+            <label for="horario">Seleccione el horario:</label>
+            <select id="horario" name="horario" required>
+                <option value="">Seleccione un horario</option>
+                <option value="06:00">06:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="18:00">06:00 PM</option>
+            </select>
+
+            <!-- Selección de autobús -->
+            <label for="autobus">Seleccione el tipo de autobús:</label>
+            <select id="autobus" name="autobus" required>
+                <option value="">Seleccione un autobús</option>
+                <option value="Ejecutivo">Ejecutivo</option>
+                <option value="Primera Clase">Primera Clase</option>
+                <option value="Económico">Económico</option>
+            </select>
+
+            <!-- Botón para revisar disponibilidad y calcular costo -->
+            <button class="btn-verde" onclick="revisarDisponibilidad()">Revisar Disponibilidad y Calcular Costo</button>
+
+            <!-- Mostrar el costo total -->
+            <label for="resultado">Costo Total:</label>
+            <input type="text" id="resultado" readonly>
+
+            <!-- Botón para registrar el viaje -->
+            <button class="btn-registrar" onclick="registrarViaje()">Registrar Viaje</button>
+        </div>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Ventas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function revisarDisponibilidad() {
+            let lugarDestino = document.getElementById('LugarDestino').value;
+            let pasajeros = parseInt(document.getElementById('pasajeros').value);
+            let horario = document.getElementById('horario').value;
+            let autobus = document.getElementById('autobus').value;
+            let costoPorViaje = 0;
+
+            if (!lugarDestino || !horario || !autobus) {
+                alert("Por favor, seleccione todos los campos.");
+                return;
+            }
+
+             switch (lugarDestino) {
+                case "Aguascalientes": costoPorViaje = 750; break;
+                case "Baja California": costoPorViaje = 1500; break;
+                case "Baja California Sur": costoPorViaje = 2000; break;
+                case "Campeche": costoPorViaje = 1500; break;
+                case "Chiapas": costoPorViaje = 1300; break;
+                case "Coahuila": costoPorViaje = 1500; break;
+                case "Colima": costoPorViaje = 900; break;
+                case "Durango": costoPorViaje = 1400; break;
+                case "Estado de México": costoPorViaje = 250; break;
+                case "Guanajuato": costoPorViaje = 800; break;
+                case "Guerrero": costoPorViaje = 600; break;
+                case "Hidalgo": costoPorViaje = 250; break;
+                case "Jalisco": costoPorViaje = 1000; break;
+                case "Michoacan": costoPorViaje = 500; break;
+                case "Morelos": costoPorViaje = 200; break;
+                case "Nayarit": costoPorViaje = 900; break;
+                case "Monterrey": costoPorViaje = 1500; break;
+                case "Oaxaca": costoPorViaje = 900; break;
+                case "Puebla": costoPorViaje = 200; break;
+                case "Queretaro": costoPorViaje = 450; break;
+                case "Quintana Roo": costoPorViaje = 1200; break;
+                case "San Luis Potosi": costoPorViaje = 800; break;
+                case "Sinaloa": costoPorViaje = 1300; break;
+                case "Sonora": costoPorViaje = 1800; break;
+                case "Tabasco": costoPorViaje = 900; break;
+                case "Tamaulipas": costoPorViaje = 1000; break;
+                case "Tlaxcala": costoPorViaje = 400; break;
+                case "Veracruz": costoPorViaje = 850; break;
+                case "Yucatán": costoPorViaje = 1800; break;
+                case "Zacatecas": costoPorViaje = 850; break;
+                default:
+                    document.getElementById('resultado').value = "Destino inválido.";
+                    return;
+            }
+
+            // Ajuste del costo según el tipo de autobús
+            switch (autobus) {
+                case "Ejecutivo": costoPorViaje *= 1.5; break;
+                case "Primera Clase": costoPorViaje *= 1.2; break;
+                case "Económico": break;
+            }
+
+            // Cálculo total
+            let costoTotal = costoPorViaje * pasajeros;
+            document.getElementById('resultado').value = "$" + costoTotal.toFixed(2);
+            alert("Disponibilidad confirmada.");
+        }
+
+        function registrarViaje() {
+            let lugarDestino = document.getElementById('LugarDestino').value;
+            let pasajeros = document.getElementById('pasajeros').value;
+            let fechaViaje = document.getElementById('fechaViaje').value;
+            let horario = document.getElementById('horario').value;
+            let autobus = document.getElementById('autobus').value;
+            let costoTotal = document.getElementById('resultado').value;
+
+            if (!lugarDestino || !pasajeros || !fechaViaje || !horario || !autobus || !costoTotal) {
+                alert("Por favor, complete todos los campos y revise la disponibilidad antes de registrar el viaje.");
+                return;
+            }
+
+            // Redirigir a la página de métodos de pago
+            window.location.href = 'metodosPago.html';
+        }
+    </script>
+</body>
+</html>

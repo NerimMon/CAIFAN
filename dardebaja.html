@@ -1,0 +1,29 @@
+﻿<!-- Formulario de registro (oculto por defecto) -->
+<div id="registerForm" class="form-container" style="display: none;">
+    <h2>Dar de baja Trabajador</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="registerEmail" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="registerPassword" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirm_password" class="form-label">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        </div>
+
+        <!-- Botón de registro -->
+        <button type="submit" class="btn btn-primary mb-3">Dar de BAJA</button>
+
+        <div class="toggle-form">
+            <p>¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Iniciar sesión</a></p>
+        </div>
+    </form>
+</div>
